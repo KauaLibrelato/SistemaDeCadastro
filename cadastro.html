@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PÁGINA DE CADASTRO DE USUÁRIO</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0px;
+            background-color: #050020;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background-color: #04001b;
+            padding: 10px;
+        }
+
+        .btnAbrir {
+            color: white;
+            font-size: 20px;
+        }
+
+        nav {
+            height: 100%;
+            width: 0;
+            background-color: #090429;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+            transition: width 0.3s;
+        }
+
+        nav a {
+            color: white;
+            font-size: 20px;
+            display: block;
+            padding: 12px 10px 12px 32px;
+        }
+
+        nav a:hover {
+            background-color: white;
+            color: #090429;
+        }
+
+        main {
+            margin-left: 150px;
+            padding: 10px;
+            transition: margin-left 0.35s;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 15px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 17px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(62, 0, 112);
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+
+        }
+
+        @media(max-width:200px) {
+
+            input,
+            button {
+                font-size: 15px;
+            }
+        }
+
+        .form {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        button:hover {
+            background-color: rgb(28, 1, 49);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="btnAbrir" onclick="abrirMenu()">&#9776; ABRIR</a>
+    </header>
+
+    <nav id="menu">
+        <a href="#" onclick="fecharMenu()">&times; FECHAR</a>
+        <a href="principal.html">HOME</a>
+        <a href="#">CADASTRO</a>
+        <a href="sobre.html">SOBRE</a>
+        <a href="login.html">SAIR</a>
+    </nav>
+    <main id="conteudo">
+        <div class="form">
+            <form action="" class="form">
+
+                <label for="codigo">Digite o Codigo:</label>
+                <input type="text" id="codigo" name="codigo"><br>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome"><br>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf"><br>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco"><br>
+
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone"><br>
+
+                <button id="botao">CADASTRAR</button>
+
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function abrirMenu() {
+            document.getElementById("menu").style.width = "250px";
+            document.getElementById("conteudo").style.marginLeft = "250px";
+        }
+        function fecharMenu() {
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("conteudo").style.marginLeft = "150px";
+        }
+
+        const button = document.getElementById("botao");
+        button.addEventListener("click", (event) => {
+            event.preventDefault()
+            const name = document.getElementById("nome")
+            const cpf = document.getElementById("cpf")
+            const codigo = document.getElementById("codigo")
+            const endereco = document.getElementById("endereco")
+            const telefone = document.getElementById("telefone")
+
+
+            if (name.value == '' || cpf.value == '') {
+                alert("Os campos nome e CPF, são obrigatótios, por favor preênche-los ")
+            }
+            if (name.value != '' && cpf.value != codigo.value != '' && endereco.value != telefone.value != '') {
+                alert("Pessoa cadastrada com sucesso, código: " + codigo.value)
+            }
+        })
+
+    </script>
+</body>
+
+</html>

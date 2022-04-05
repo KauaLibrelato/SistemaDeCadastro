@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body>
+    <main>
+        <div class="form">
+            <form action="" class="form">
+
+                <label for="usuario">Digite o Usuário:</label>
+                <input type="text" id="usuario" name="usuario"><br><br>
+
+                <label for="senha">Password:</label>
+                <input type="password" id="senha" name="senha"><br><br>
+
+                <button id="botao">Login</button>
+
+            </form>
+        </div>
+    </main>
+    <script>
+        const button = document.getElementById("botao");
+
+        const userCerto = "SISTEMA"
+        const senhaCerta = "candidato123"
+
+
+        button.addEventListener("click", (event) => {
+            event.preventDefault()
+            const user = document.getElementById("usuario")
+            const senha = document.getElementById("senha")
+
+            if (user.value == "" || senha.value == " ") {
+                alert("Há campos vazios")
+            }
+            else if (user.value != userCerto && senha.value != senhaCerta) {
+                alert("Usuário ou senha incorretas")
+            }
+
+            else if (user.value == userCerto && senha.value == senhaCerta) {
+                window.location.href = "principal.html"
+            }
+        })
+
+    </script>
+</body>
+
+</html>
